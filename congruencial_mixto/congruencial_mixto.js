@@ -36,7 +36,7 @@ angular.module('app')
 			angular.forEach(self.calculos,function (value,key) {
 				if(value.ri == numero){
 					self.calculos[key].flag = true;
-					self.periodo = parseInt(self.calculos.length + 1 - key);
+					self.periodo = parseInt(self.calculos.length - key);
 					flag = false;
 				}
 			});
