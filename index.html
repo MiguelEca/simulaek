@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>SimulaEK</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" href="dist/bootstrap.min.css">
+	<style>
+		.green{
+			background: green;
+			color:white;
+		}
+	</style>
+</head>
+<body ng-controller="ctrl" class="container">
+	<ul class="nav nav-tabs" style="margin-top: 10px">
+        <li class="active" ng-click="change(0)"><a data-toggle="tab">Congruencial Multiplicativo</a></li>
+        <li ng-click="change(1)"><a  data-toggle="tab">Congruencial Mixto</a></li>
+    </ul>
+    <div>
+    	<ng-include src="select_tab.url"></ng-include>
+    </div>
+</body>
+<script src="dist/jquery.js"></script>
+<script src="dist/angular.min.js"></script>
+<script src="dist/bootstrap.js"></script>
+<script>	
+	'use strict';
+	var app = angular.module('app',[]);
+	app.controller('ctrl',function ($scope) {
+		var self = $scope;
+		self.navs = [
+			{id:0,url:'congruencial_multiplicativo/congruencial_multiplicativo.html'},
+			{id:1,url:'congruencial_mixto/congruencial_mixto.html'}
+		]; 
+		self.select_tab = self.navs[0];
+	    self.change = function (id) {
+	    	self.select_tab = self.navs[id];
+	    };
+	});
+</script>
+<script src="congruencial_multiplicativo/congruencial_multiplicativo.js"></script>
+<script src="congruencial_mixto/congruencial_mixto.js"></script>
+</html>

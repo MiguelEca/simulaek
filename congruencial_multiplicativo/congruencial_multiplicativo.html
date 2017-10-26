@@ -1,0 +1,44 @@
+<div class="panel" ng-controller="congruencial_multiplicativo">
+	<div class="panel-body">
+		<form ng-submit="calcular()">
+			<fieldset>
+				<div class="form-group col-md-4">
+					<label for="">X0:</label>
+					<input type="number" class="form-control" ng-model="object.x0" required="">
+				</div>
+				<div class="form-group col-md-4">
+					<label for="">a:</label>
+					<input type="number" class="form-control" ng-model="object.a" required="">
+				</div>
+				<div class="form-group col-md-4">
+					<label for="">m:</label>
+					<input type="number" class="form-control" ng-model="object.m" required="">
+				</div>
+			</fieldset>
+			<div class="text-center">
+				<button class="btn btn-primary" type="submit">Resolver</button>
+			</div>
+		</form>
+	</div>
+	<div class="panel-footer" style="background: white">
+		<h2 style="color:green">PERIODO : {{periodo}}</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered">
+				<thead>
+					<th class="text-center">n</th>
+					<th class="text-center">Xn</th>
+					<th class="text-center">a * Xn</th>
+					<th class="text-center">Xn + 1</th>
+					<th class="text-center">ri</th>
+				</thead>
+				<tbody ng-repeat="cal in calculos" ng-class="{green:cal.flag}">
+					<td class="text-center" ng-bind="cal.n"></td>
+					<td class="text-center" ng-bind="cal.xn"></td>
+					<td class="text-center" ng-bind="cal.axn"></td>
+					<td class="text-center" ng-bind="cal.xnMAS1"></td>
+					<td class="text-center" ng-bind="cal.ri"></td>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
