@@ -2,17 +2,21 @@
 	<div class="panel-body">
 		<form ng-submit="calcular()">
 			<fieldset>
-				<div class="form-group col-md-4">
+				<div class="form-group col-md-3 col-sm-3 col-xs-12">
 					<label for="">X0:</label>
 					<input type="number" class="form-control" ng-model="object.x0" required="">
 				</div>
-				<div class="form-group col-md-4">
+				<div class="form-group col-md-3 col-sm-3 col-xs-12">
 					<label for="">a:</label>
 					<input type="number" class="form-control" ng-model="object.a" required="">
 				</div>
-				<div class="form-group col-md-4">
+				<div class="form-group col-md-3 col-sm-3 col-xs-12">
 					<label for="">m:</label>
 					<input type="number" class="form-control" ng-model="object.m" required="">
+				</div>
+				<div class="form-group col-md-3 col-sm-3 col-xs-12">
+					<label for="">Presición:</label>
+					<input type="number" class="form-control" ng-model="presicion" min="1" max="5" required="">
 				</div>
 			</fieldset>
 			<div class="text-center">
