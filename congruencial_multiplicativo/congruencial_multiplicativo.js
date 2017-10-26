@@ -4,7 +4,7 @@ angular.module('app')
 	var self = $scope;
 	self.calculos = [];
 	self.periodo = 0;
-	self.presicion = 3;
+	self.precision = 3;
 	self.calcular = function () {
 		self.calculos = [];
 		let flag = true;
@@ -16,7 +16,7 @@ angular.module('app')
 			if(n == 0){
 				ri = null;
 			}else{
-				ri = (xn/self.object.m).toFixed(self.presicion);
+				ri = (xn/self.object.m).toFixed(self.precision);
 			}
 			let nuevo = {
 				n: n,

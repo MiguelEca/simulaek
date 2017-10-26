@@ -15,8 +15,8 @@
 					<input type="number" class="form-control" ng-model="object.m" required="">
 				</div>
 				<div class="form-group col-md-3 col-sm-3 col-xs-12">
-					<label for="">Presición:</label>
-					<input type="number" class="form-control" ng-model="presicion" min="1" max="5" required="">
+					<label for="">Precisión:</label>
+					<input type="number" class="form-control" ng-model="precision" min="1" max="20" required="">
 				</div>
 			</fieldset>
 			<div class="text-center">
@@ -24,7 +24,7 @@
 			</div>
 		</form>
 	</div>
-	<div class="panel-footer" style="background: white">
+	<div class="panel-footer" style="background: white" ng-show="calculos.length > 0">
 		<h2 style="color:green">PERIODO : {{periodo}}</h2>
 		<div class="table-responsive">
 			<table class="table table-bordered">
