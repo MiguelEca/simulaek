@@ -28,8 +28,23 @@
 			</div>
 		</form>
 	</div>
+	<div class="panel-body" ng-show="calculos.length > 0">
+		<fieldset>
+			<div class="form-group">
+				<label for="">Ingrese la Muestra con la que desea operar :</label>
+				<div class = "input-group">
+				<input type="number" ng-model="cantidad_muestra" class="form-control">
+	               <span class = "input-group-btn">
+	                  <button class="btn btn-default" ng-click="frecuencia()">Ejecutar pruebas</button>	
+	               </span>
+	            </div>
+			</div>	
+		</fieldset>
+	</div>
 	<div class="panel-footer" style="background: white" ng-show="calculos.length > 0">
 		<h2 style="color:green">PERIODO : {{periodo}}</h2>
+		<br>
+		<p style="color:green">Total: {{calculos.length}}</p>
 		<div class="table-responsive">
 			<table class="table table-bordered">
 				<thead>
@@ -39,7 +54,7 @@
 					<th class="text-center">Xn + 1</th>
 					<th class="text-center">ri</th>
 				</thead>
-				<tbody ng-repeat="cal in calculos" ng-class="{green:cal.flag}">
+				<tbody dir-paginate="cal in calculos|itemsPerPage: 10" pagination-id="cal.id" ng-class="{green:cal.flag}">
 					<td class="text-center" ng-bind="cal.n"></td>
 					<td class="text-center" ng-bind="cal.xn"></td>
 					<td class="text-center" ng-bind="cal.axnMASc"></td>
@@ -48,5 +63,8 @@
 				</tbody>
 			</table>
 		</div>
+		<div class="text-center">
+            <dir-pagination-controls pagination-id="cal.id"></dir-pagination-controls>
+        </div>
 	</div>
 </div>

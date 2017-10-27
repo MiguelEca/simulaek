@@ -1,6 +1,6 @@
 'use strict';
 angular.module('app')
-.controller('congruencial_mixto',function ($scope) {
+.controller('congruencial_mixto',function ($scope,$rootScope) {
 	var self = $scope;
 	self.calculos = [];
 	self.periodo = 0;
@@ -38,9 +38,26 @@ angular.module('app')
 					self.calculos[key].flag = true;
 					self.periodo = parseInt(self.calculos.length - key);
 					flag = false;
+					self.cantidad_muestra = self.calculos.length;
 				}
 			});
 		}
 		return flag;
 	};
+	self.frecuencia = function () {
+		$rootScope.lista_frecuencia = [];
+		for (var i = 1; i <= self.cantidad_muestra; i++) {
+			let item = {n: i,ri: self.calculos[i].ri};
+			$rootScope.lista_frecuencia.push(item);
+		}
+		self.change(2);//Frecuencia
+	};
 });
+
+
+
+
+
+
+
+

@@ -1,0 +1,85 @@
+<div class="panel" ng-controller="frecuencia">
+	<div class="panel-body col-xs-4 col-md-3 col-sm-3">
+		<h4 class="text-center">Muestra</h4>
+		<br>
+		<p style="color:green">Total: {{lista_frecuencia.length}}</p>
+		<div class="row">
+			<form ng-submit="nuevo()">
+				<fieldset>
+					<div class = "input-group">
+		               <span class = "input-group-btn">
+		                  <button class = "btn btn-default" type ="submit">
+		                     <strong class="glyphicon glyphicon-plus"></strong>
+		                  </button>
+		               </span>
+		               <input type="number" step="any" ng-model="nuevo_numero" class="form-control">
+		            </div>
+				</fieldset>
+			</form>
+		</div>
+		<div class="table-responsive">
+			<table class="table">
+				<tbody dir-paginate="item in lista_frecuencia|itemsPerPage: 20" pagination-id="item.id">
+					<td ng-bind="item.n"></td>
+					<td ng-bind="item.ri"></td>
+					<td>
+						<small ng-click="remove(item)" class="btn-link glyphicon glyphicon-remove" style="color:red"></small>
+					</td>
+				</tbody>
+			</table>
+		</div>
+		<div class="text-center">
+            <dir-pagination-controls pagination-id="item.id"></dir-pagination-controls>
+        </div>
+        <div class="text-center" ng-show="lista_frecuencia.length > 0">
+			<button class="btn btn-success" ng-click="ejecutar()">Ejecutar</button>
+        	<br>
+			<button class="btn-link" ng-click="clear()" style="color:red">Limpiar Todo <strong class="glyphicon glyphicon-trash"></strong></button>
+		</div>
+	</div>
+	<div class="panel-body col-xs-8 col-md-9 col-sm-9">
+		<h3 class="text-center" ng-show="!ejecutado && lista_frecuencia.length>0" style="color:green">Presione ejecutar para cargar los resultados</h3>
+		<h3 class="text-center" ng-show="lista_frecuencia.length==0" style="color:green">Ingrese datos en la muestra por favor</h3>
+		<div style="padding: 10px" ng-show="ejecutado">
+			<h2 class="text-center row" style="color:#128cba">Prueba de Promedios</h2>
+			<hr>
+			<h4>Promedio Aritmetico: {{promedio_aritmetico}}</h4>
+			<h4>Valor del Estadistico: {{valor_estadistico_promedios}}</h4>
+			<hr>
+			<h2 class="text-center row" style="color:#128cba">Prueba de Frecuencias</h2>
+			<hr>
+			<h4>Número de Clases : {{numero_clases}}</h4>
+			<h4>Frecuencia Esperada : {{frecuencia_esperada}}</h4>
+			<h4>Valor Calculado : {{valor_calculado}}</h4>
+			<div class="table-responsive">
+				<table class="table table-bordered">
+					<thead>
+						<th class="text-center">Clase</th>
+						<th class="text-center">Intervalo</th>
+						<th class="text-center">Fo</th>
+						<th class="text-center">Fe</th>
+						<th class="text-center">(Fo-Fe)^2</th>
+					</thead>
+					<tbody>
+						<tr ng-repeat="cuenta in cuentas">
+							<td class="text-center" ng-bind="cuenta.clase"></td>
+							<td class="text-center" ng-bind="cuenta.intervalo"></td>
+							<td class="text-center" ng-bind="cuenta.fo"></td>
+							<td class="text-center" ng-bind="cuenta.fe"></td>
+							<td class="text-center" ng-bind="cuenta.cuadrado"></td>	
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td class="text-center" ng-bind="totalFo"></td>
+							<td></td>
+							<td class="text-center" ng-bind="totalCuadrado"></td>
+						</tr>
+					</tbody>
+				</table>
+				
+			</div>
+		</div>
+		
+	</div>
+</div>

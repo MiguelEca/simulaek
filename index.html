@@ -11,6 +11,7 @@
 	<ul class="nav nav-tabs" style="margin-top: 10px">
         <li class="active" ng-click="change(0)"><a data-toggle="tab">Congruencial Multiplicativo</a></li>
         <li ng-click="change(1)"><a  data-toggle="tab">Congruencial Mixto</a></li>
+		<li ng-click="change(2)"><a  data-toggle="tab">Pruebas Estadisticas</a></li>
     </ul>
     <div>
     	<ng-include src="select_tab.url"></ng-include>
@@ -19,14 +20,16 @@
 <script src="dist/jquery.js"></script>
 <script src="dist/angular.min.js"></script>
 <script src="dist/bootstrap.js"></script>
+<script src="dist/dirPagination.js"></script>
 <script>	
 	'use strict';
-	var app = angular.module('app',[]);
+	var app = angular.module('app',['angularUtils.directives.dirPagination']);
 	app.controller('ctrl',function ($scope) {
 		var self = $scope;
 		self.navs = [
 			{id:0,url:'congruencial_multiplicativo/congruencial_multiplicativo.html'},
-			{id:1,url:'congruencial_mixto/congruencial_mixto.html'}
+			{id:1,url:'congruencial_mixto/congruencial_mixto.html'},
+			{id:2,url:'frecuencia/frecuencia.html'}
 		]; 
 		self.select_tab = self.navs[0];
 	    self.change = function (id) {
@@ -36,4 +39,5 @@
 </script>
 <script src="congruencial_multiplicativo/congruencial_multiplicativo.js"></script>
 <script src="congruencial_mixto/congruencial_mixto.js"></script>
+<script src="frecuencia/frecuencia.js"></script>
 </html>
