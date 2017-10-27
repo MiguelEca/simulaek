@@ -6,7 +6,7 @@ angular.module('app')
 	self.ejecutado = false;
 	self.lista_frecuencia = [];
 	this.$onInit = function () {
-		if($rootScope.lista_frecuencia.length > 0){
+		if($rootScope.lista_frecuencia != null){
 			self.lista_frecuencia = $rootScope.lista_frecuencia;
 			self.ejecutar();
 		};
