@@ -44,7 +44,9 @@ angular.module('app')
 		}
 		return flag;
 	};
+	self.redondear = true;
 	self.frecuencia = function () {
+		$rootScope.redondear = self.redondear;
 		$rootScope.lista_frecuencia = [];
 		for (var i = 1; i <= self.cantidad_muestra; i++) {
 			let item = {n: i,ri: self.calculos[i].ri};

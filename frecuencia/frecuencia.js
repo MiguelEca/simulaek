@@ -28,7 +28,13 @@ angular.module('app')
 		/**
 		 * Calcular Clases
 		 */
-		self.numero_clases = parseInt(Math.round( 1 + (3.32*Math.log10(self.lista_frecuencia.length)) ) );
+		let valor_hallado = 1 + (3.32*Math.log10(self.lista_frecuencia.length));
+		if($rootScope.redondear){
+			self.numero_clases = parseInt(Math.round(valor_hallado));	
+		}else{
+			self.numero_clases = parseInt(valor_hallado);
+		}
+		
 		/**
 		 * Calcular Frecuencia Esperada
 		 */
