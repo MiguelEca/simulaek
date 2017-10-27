@@ -28,7 +28,7 @@ angular.module('app')
 		/**
 		 * Calcular Clases
 		 */
-		self.numero_clases = parseInt(1 + (3.32*Math.log(self.lista_frecuencia.length)));
+		self.numero_clases = parseInt(Math.round( 1 + (3.32*Math.log10(self.lista_frecuencia.length)) ) );
 		/**
 		 * Calcular Frecuencia Esperada
 		 */
